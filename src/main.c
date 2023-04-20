@@ -30,7 +30,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "diag/trace.h"
-
 #include "timer.h"
 #include "led.h"
 
@@ -57,12 +56,10 @@
 // Keep the LED on for 2/3 of a second.
 #define BLINK_ON_TICKS  (TIMER_FREQUENCY_HZ * 3 / 4)
 #define BLINK_OFF_TICKS (TIMER_FREQUENCY_HZ - BLINK_ON_TICKS)
-//=======================================
 /* USER CODE BEGIN Private defines */
 
 #define LED_PIN GPIO_PIN_13
 #define LED_GPIO_PORT GPIOC
-
 #define FAN_PIN GPIO_PIN_0
 #define FAN_GPIO_PORT GPIOA
 
@@ -77,25 +74,19 @@
 #pragma GCC diagnostic ignored "-Wmissing-declarations"
 #pragma GCC diagnostic ignored "-Wreturn-type"
 //==========================================
-float temp = 28;
-float humi = 75;
-int m,n;
-float A[6] = {23,24,28,24,32,34};
+int temp = 0;
+int humi = 0;
+
+int A[6] = {23,24,28,24,32,34};
 
 int
 main(int argc, char* argv[])
 {
-  // Send a greeting to the trace device (skipped on Release).
-  trace_puts("Hello Arm World!");
-
-  // At this stage the system clock should have already been configured
-  // at high speed.
-  trace_printf("System clock: %u Hz\n", SystemCoreClock);
   timer_start();
 
   blink_led_init();
   
-  uint32_t seconds = 0;
+  uint32_t seconds = 1;
 
   // Infinite loop
   GPIO_InitTypeDef GPIO_InitStruct;
@@ -106,35 +97,38 @@ main(int argc, char* argv[])
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_GPIO_PORT, &GPIO_InitStruct);
-
   /* Configure FAN Pin */
-  GPIO_InitStruct.Pin = FAN_PIN;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(FAN_GPIO_PORT, &GPIO_InitStruct);
+    GPIO_InitStruct.Pin = FAN_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(FAN_GPIO_PORT, &GPIO_InitStruct);
 
   while (1)
     {
-	  for(int i;i<6;i++){
-		  temp = A[i];
-		  trace_printf("Temp: %u\n", temp);
-		  if(temp > 27){
-		  		  blink_led_on();
-		  		  timer_sleep(seconds == 0 ? TIMER_FREQUENCY_HZ : BLINK_ON_TICKS);
-		  		  trace_printf("Warning!!!");
-		  		  HAL_GPIO_WritePin(FAN_GPIO_PORT, FAN_PIN, GPIO_PIN_SET);
-		  		  //turn on quat
-		  	  }else{
-		  		  HAL_GPIO_WritePin(FAN_GPIO_PORT, FAN_PIN, GPIO_PIN_RESET);//turn off
-		  		  blink_led_off();
-		  		  timer_sleep(BLINK_OFF_TICKS);
 
-		  	  }
-		  HAL_Delay(1000);
+	  for(int i;i<6;i++){
 		  ++seconds;
 		  // Count seconds on the trace device.
 		  trace_printf("Second %u\n", seconds);
+		  temp = A[i];
+		  trace_printf("Temp: %d\n", A[i]);
+		  if(temp > 27){
+		  		  blink_led_on();
+		  		  timer_sleep(seconds == 0 ? TIMER_FREQUENCY_HZ : BLINK_ON_TICKS);
+		  		  trace_printf("Warning!!!/n");
+		  		  HAL_GPIO_WritePin(LED_GPIO_PORT, LED_PIN, GPIO_PIN_SET);
+		  		  HAL_GPIO_WritePin(FAN_GPIO_PORT, FAN_PIN, GPIO_PIN_SET);
+		  				  		  //turn on quat
+		  		  //turn on Led ngoai vaf trong stm
+		  	  }else{
+		  	   	  HAL_GPIO_WritePin(FAN_GPIO_PORT, FAN_PIN, GPIO_PIN_RESET);//turn off
+		  		  HAL_GPIO_WritePin(LED_GPIO_PORT, LED_PIN, GPIO_PIN_RESET);//turn off led ngoai va trong stm
+		  		  blink_led_off();
+		  		  timer_sleep(BLINK_OFF_TICKS);
+		  	  }
+		  HAL_Delay(1000);
+
 	  }
 
     }

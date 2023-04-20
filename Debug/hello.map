@@ -1,9 +1,5 @@
 Archive member included to satisfy reference by file (symbol)
 
-/home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_addsubdf3.o)
-                              ./src/main.o (__aeabi_f2d)
-/home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_cmpsf2.o)
-                              ./src/main.o (__aeabi_fcmpgt)
 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
                               ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o (__aeabi_uldivmod)
 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
@@ -2275,6 +2271,10 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./system/src/diag/trace.o
  .data          0x0000000000000000        0x0 ./system/src/diag/trace.o
  .bss           0x0000000000000000        0x0 ./system/src/diag/trace.o
+ .rodata.trace_puts.str1.4
+                0x0000000000000000        0x2 ./system/src/diag/trace.o
+ .text.trace_puts
+                0x0000000000000000       0x20 ./system/src/diag/trace.o
  .text.trace_putchar
                 0x0000000000000000       0x16 ./system/src/diag/trace.o
  .rodata.trace_dump_args.str1.4
@@ -3423,9 +3423,7 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./src/main.o
  .data          0x0000000000000000        0x0 ./src/main.o
  .bss           0x0000000000000000        0x0 ./src/main.o
- .bss.n         0x0000000000000000        0x4 ./src/main.o
- .bss.m         0x0000000000000000        0x4 ./src/main.o
- .data.humi     0x0000000000000000        0x4 ./src/main.o
+ .bss.humi      0x0000000000000000        0x4 ./src/main.o
  .debug_macro   0x0000000000000000      0xaba ./src/main.o
  .debug_macro   0x0000000000000000       0x22 ./src/main.o
  .debug_macro   0x0000000000000000       0x75 ./src/main.o
@@ -3844,10 +3842,6 @@ Discarded input sections
  .comment       0x0000000000000000       0x3a ./src/write.o
  .ARM.attributes
                 0x0000000000000000       0x2e ./src/write.o
- .data          0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_addsubdf3.o)
- .bss           0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_addsubdf3.o)
- .data          0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_cmpsf2.o)
- .bss           0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_cmpsf2.o)
  .data          0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
  .bss           0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
  .text          0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
@@ -3866,8 +3860,11 @@ Discarded input sections
  .text          0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-errno.o)
  .data          0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-errno.o)
  .bss           0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-errno.o)
+ .text          0x0000000000000000       0x10 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-strlen.o)
  .data          0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-strlen.o)
  .bss           0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-strlen.o)
+ .ARM.attributes
+                0x0000000000000000       0x17 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-strlen.o)
  .text          0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-svfprintf.o)
  .data          0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-svfprintf.o)
  .bss           0x0000000000000000        0x0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-svfprintf.o)
@@ -4114,15 +4111,15 @@ END GROUP
 
 .inits          0x00000000080003e8       0x28
                 0x00000000080003e8                __data_regions_array_start = .
-                0x00000000080003e8        0x4 LONG 0x8002a84 LOADADDR (.data)
+                0x00000000080003e8        0x4 LONG 0x80025a8 LOADADDR (.data)
                 0x00000000080003ec        0x4 LONG 0x20000000 ADDR (.data)
-                0x00000000080003f0        0x4 LONG 0x20000088 (ADDR (.data) + SIZEOF (.data))
-                0x00000000080003f4        0x4 LONG 0x8002a84 LOADADDR (.data_CCMRAM)
+                0x00000000080003f0        0x4 LONG 0x20000084 (ADDR (.data) + SIZEOF (.data))
+                0x00000000080003f4        0x4 LONG 0x80025a8 LOADADDR (.data_CCMRAM)
                 0x00000000080003f8        0x4 LONG 0x10000000 ADDR (.data_CCMRAM)
                 0x00000000080003fc        0x4 LONG 0x10000000 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
                 0x0000000008000400                __data_regions_array_end = .
                 0x0000000008000400                __bss_regions_array_start = .
-                0x0000000008000400        0x4 LONG 0x20000088 ADDR (.bss)
+                0x0000000008000400        0x4 LONG 0x20000084 ADDR (.bss)
                 0x0000000008000404        0x4 LONG 0x20000130 (ADDR (.bss) + SIZEOF (.bss))
                 0x0000000008000408        0x4 LONG 0x10000000 ADDR (.bss_CCMRAM)
                 0x000000000800040c        0x4 LONG 0x10000000 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
@@ -4149,7 +4146,7 @@ END GROUP
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x0000000008000410     0x266a
+.text           0x0000000008000410     0x2190
  *(.text .text.*)
  .text.HAL_InitTick
                 0x0000000008000410       0x4c ./system/src/stm32f4-hal/stm32f4xx_hal.o
@@ -4218,233 +4215,192 @@ END GROUP
  .text.trace_printf
                 0x0000000008001200       0x34 ./system/src/diag/trace.o
                 0x0000000008001200                trace_printf
- .text.trace_puts
-                0x0000000008001234       0x20 ./system/src/diag/trace.o
-                0x0000000008001234                trace_puts
  .text.dumpExceptionStack
-                0x0000000008001254       0xf4 ./system/src/cortexm/exception-handlers.o
-                0x0000000008001254                dumpExceptionStack
+                0x0000000008001234       0xf4 ./system/src/cortexm/exception-handlers.o
+                0x0000000008001234                dumpExceptionStack
  .text.isSemihosting
-                0x0000000008001348       0x20 ./system/src/cortexm/exception-handlers.o
-                0x0000000008001348                isSemihosting
+                0x0000000008001328       0x20 ./system/src/cortexm/exception-handlers.o
+                0x0000000008001328                isSemihosting
  .text.__initialize_hardware_early
-                0x0000000008001368       0x18 ./system/src/cortexm/initialize-hardware.o
-                0x0000000008001368                __initialize_hardware_early
+                0x0000000008001348       0x18 ./system/src/cortexm/initialize-hardware.o
+                0x0000000008001348                __initialize_hardware_early
  .text.SystemInit
-                0x0000000008001380       0x10 ./system/src/cmsis/system_stm32f4xx.o
-                0x0000000008001380                SystemInit
+                0x0000000008001360       0x10 ./system/src/cmsis/system_stm32f4xx.o
+                0x0000000008001360                SystemInit
  .text.SystemCoreClockUpdate
-                0x0000000008001390       0xa0 ./system/src/cmsis/system_stm32f4xx.o
-                0x0000000008001390                SystemCoreClockUpdate
+                0x0000000008001370       0xa0 ./system/src/cmsis/system_stm32f4xx.o
+                0x0000000008001370                SystemCoreClockUpdate
  .text.SystemClock_Config
-                0x0000000008001430       0xa0 ./src/initialize-hardware.o
-                0x0000000008001430                SystemClock_Config
+                0x0000000008001410       0xa0 ./src/initialize-hardware.o
+                0x0000000008001410                SystemClock_Config
  .text.__initialize_hardware
-                0x00000000080014d0       0x10 ./src/initialize-hardware.o
-                0x00000000080014d0                __initialize_hardware
+                0x00000000080014b0       0x10 ./src/initialize-hardware.o
+                0x00000000080014b0                __initialize_hardware
  .text.assert_failed
-                0x00000000080014e0       0x14 ./src/initialize-hardware.o
-                0x00000000080014e0                assert_failed
+                0x00000000080014c0       0x14 ./src/initialize-hardware.o
+                0x00000000080014c0                assert_failed
  .text.blink_led_on
-                0x00000000080014f4       0x14 ./src/led.o
-                0x00000000080014f4                blink_led_on
+                0x00000000080014d4       0x14 ./src/led.o
+                0x00000000080014d4                blink_led_on
  .text.blink_led_off
-                0x0000000008001508       0x14 ./src/led.o
-                0x0000000008001508                blink_led_off
+                0x00000000080014e8       0x14 ./src/led.o
+                0x00000000080014e8                blink_led_off
  .text.blink_led_init
-                0x000000000800151c       0x38 ./src/led.o
-                0x000000000800151c                blink_led_init
- .text.main     0x0000000008001554       0xe8 ./src/main.o
-                0x0000000008001554                main
+                0x00000000080014fc       0x38 ./src/led.o
+                0x00000000080014fc                blink_led_init
+ .text.main     0x0000000008001534       0xd4 ./src/main.o
+                0x0000000008001534                main
  .text.HAL_MspInit
-                0x000000000800163c        0x2 ./src/stm32f4xx_hal_msp.o
-                0x000000000800163c                HAL_MspInit
- *fill*         0x000000000800163e        0x2 
+                0x0000000008001608        0x2 ./src/stm32f4xx_hal_msp.o
+                0x0000000008001608                HAL_MspInit
+ *fill*         0x000000000800160a        0x2 
  .text.timer_start
-                0x0000000008001640       0x38 ./src/timer.o
-                0x0000000008001640                timer_start
+                0x000000000800160c       0x38 ./src/timer.o
+                0x000000000800160c                timer_start
  .text.timer_sleep
-                0x0000000008001678       0x14 ./src/timer.o
-                0x0000000008001678                timer_sleep
+                0x0000000008001644       0x14 ./src/timer.o
+                0x0000000008001644                timer_sleep
  .text.timer_tick
-                0x000000000800168c       0x14 ./src/timer.o
-                0x000000000800168c                timer_tick
+                0x0000000008001658       0x14 ./src/timer.o
+                0x0000000008001658                timer_tick
  .text.SysTick_Handler
-                0x00000000080016a0        0xc ./src/timer.o
-                0x00000000080016a0                SysTick_Handler
- .text          0x00000000080016ac      0x378 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_addsubdf3.o)
-                0x00000000080016ac                __aeabi_drsub
-                0x00000000080016b4                __aeabi_dsub
-                0x00000000080016b4                __subdf3
-                0x00000000080016b8                __adddf3
-                0x00000000080016b8                __aeabi_dadd
-                0x0000000008001930                __aeabi_ui2d
-                0x0000000008001930                __floatunsidf
-                0x0000000008001950                __floatsidf
-                0x0000000008001950                __aeabi_i2d
-                0x0000000008001974                __extendsfdf2
-                0x0000000008001974                __aeabi_f2d
-                0x00000000080019b8                __aeabi_ul2d
-                0x00000000080019b8                __floatundidf
-                0x00000000080019c8                __floatdidf
-                0x00000000080019c8                __aeabi_l2d
- .text          0x0000000008001a24       0xec /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_cmpsf2.o)
-                0x0000000008001a24                __gtsf2
-                0x0000000008001a24                __gesf2
-                0x0000000008001a2c                __lesf2
-                0x0000000008001a2c                __ltsf2
-                0x0000000008001a34                __nesf2
-                0x0000000008001a34                __eqsf2
-                0x0000000008001a34                __cmpsf2
-                0x0000000008001a94                __aeabi_cfrcmple
-                0x0000000008001a9c                __aeabi_cfcmple
-                0x0000000008001a9c                __aeabi_cfcmpeq
-                0x0000000008001aac                __aeabi_fcmpeq
-                0x0000000008001ac0                __aeabi_fcmplt
-                0x0000000008001ad4                __aeabi_fcmple
-                0x0000000008001ae8                __aeabi_fcmpge
-                0x0000000008001afc                __aeabi_fcmpgt
- .text          0x0000000008001b10       0x30 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
-                0x0000000008001b10                __aeabi_uldivmod
+                0x000000000800166c        0xc ./src/timer.o
+                0x000000000800166c                SysTick_Handler
+ .text          0x0000000008001678       0x30 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+                0x0000000008001678                __aeabi_uldivmod
  .text.__udivmoddi4
-                0x0000000008001b40      0x2bc /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
-                0x0000000008001b40                __udivmoddi4
- .text          0x0000000008001dfc        0x4 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
-                0x0000000008001dfc                __aeabi_ldiv0
-                0x0000000008001dfc                __aeabi_idiv0
+                0x00000000080016a8      0x2bc /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+                0x00000000080016a8                __udivmoddi4
+ .text          0x0000000008001964        0x4 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x0000000008001964                __aeabi_ldiv0
+                0x0000000008001964                __aeabi_idiv0
  .text._vsnprintf_r
-                0x0000000008001e00       0x56 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-vsnprintf.o)
-                0x0000000008001e00                _vsnprintf_r
-                0x0000000008001e00                _vsniprintf_r
- *fill*         0x0000000008001e56        0x2 
+                0x0000000008001968       0x56 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-vsnprintf.o)
+                0x0000000008001968                _vsnprintf_r
+                0x0000000008001968                _vsniprintf_r
+ *fill*         0x00000000080019be        0x2 
  .text.vsnprintf
-                0x0000000008001e58       0x1c /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-vsnprintf.o)
-                0x0000000008001e58                vsnprintf
-                0x0000000008001e58                vsniprintf
- .text.__errno  0x0000000008001e74        0xc /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-errno.o)
-                0x0000000008001e74                __errno
- .text          0x0000000008001e80       0x10 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-strlen.o)
-                0x0000000008001e80                strlen
+                0x00000000080019c0       0x1c /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-vsnprintf.o)
+                0x00000000080019c0                vsnprintf
+                0x00000000080019c0                vsniprintf
+ .text.__errno  0x00000000080019dc        0xc /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-errno.o)
+                0x00000000080019dc                __errno
  .text.__ssputs_r
-                0x0000000008001e90       0xb6 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-svfprintf.o)
-                0x0000000008001e90                __ssputs_r
- *fill*         0x0000000008001f46        0x2 
+                0x00000000080019e8       0xb6 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-svfprintf.o)
+                0x00000000080019e8                __ssputs_r
+ *fill*         0x0000000008001a9e        0x2 
  .text._svfprintf_r
-                0x0000000008001f48      0x1f8 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-svfprintf.o)
-                0x0000000008001f48                _svfprintf_r
-                0x0000000008001f48                _svfiprintf_r
+                0x0000000008001aa0      0x1f8 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-svfprintf.o)
+                0x0000000008001aa0                _svfprintf_r
+                0x0000000008001aa0                _svfiprintf_r
  .text._printf_common
-                0x0000000008002140       0xda /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-vfprintf_i.o)
-                0x0000000008002140                _printf_common
- *fill*         0x000000000800221a        0x2 
+                0x0000000008001c98       0xda /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x0000000008001c98                _printf_common
+ *fill*         0x0000000008001d72        0x2 
  .text._printf_i
-                0x000000000800221c      0x258 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-vfprintf_i.o)
-                0x000000000800221c                _printf_i
- .text.memmove  0x0000000008002474       0x34 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memmove.o)
-                0x0000000008002474                memmove
- *fill*         0x00000000080024a8        0x8 
- .text          0x00000000080024b0       0xa0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memchr.o)
-                0x00000000080024b0                memchr
- .text.memcpy   0x0000000008002550       0x1c /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy-stub.o)
-                0x0000000008002550                memcpy
- .text._free_r  0x000000000800256c       0x94 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-freer.o)
-                0x000000000800256c                _free_r
+                0x0000000008001d74      0x258 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x0000000008001d74                _printf_i
+ .text.memmove  0x0000000008001fcc       0x34 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memmove.o)
+                0x0000000008001fcc                memmove
+ .text          0x0000000008002000       0xa0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memchr.o)
+                0x0000000008002000                memchr
+ .text.memcpy   0x00000000080020a0       0x1c /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy-stub.o)
+                0x00000000080020a0                memcpy
+ .text._free_r  0x00000000080020bc       0x94 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-freer.o)
+                0x00000000080020bc                _free_r
  .text.sbrk_aligned
-                0x0000000008002600       0x44 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mallocr.o)
+                0x0000000008002150       0x44 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mallocr.o)
  .text._malloc_r
-                0x0000000008002644       0xf0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mallocr.o)
-                0x0000000008002644                _malloc_r
+                0x0000000008002194       0xf0 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mallocr.o)
+                0x0000000008002194                _malloc_r
  .text.__malloc_lock
-                0x0000000008002734        0xc /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mlock.o)
-                0x0000000008002734                __malloc_lock
+                0x0000000008002284        0xc /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mlock.o)
+                0x0000000008002284                __malloc_lock
  .text.__malloc_unlock
-                0x0000000008002740        0xc /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mlock.o)
-                0x0000000008002740                __malloc_unlock
+                0x0000000008002290        0xc /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mlock.o)
+                0x0000000008002290                __malloc_unlock
  .text._realloc_r
-                0x000000000800274c       0x5c /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-reallocr.o)
-                0x000000000800274c                _realloc_r
- .text._sbrk_r  0x00000000080027a8       0x20 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-sbrkr.o)
-                0x00000000080027a8                _sbrk_r
+                0x000000000800229c       0x5c /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-reallocr.o)
+                0x000000000800229c                _realloc_r
+ .text._sbrk_r  0x00000000080022f8       0x20 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-sbrkr.o)
+                0x00000000080022f8                _sbrk_r
  .text.__retarget_lock_acquire_recursive
-                0x00000000080027c8        0x2 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-lock.o)
-                0x00000000080027c8                __retarget_lock_acquire_recursive
+                0x0000000008002318        0x2 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-lock.o)
+                0x0000000008002318                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x00000000080027ca        0x2 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-lock.o)
-                0x00000000080027ca                __retarget_lock_release_recursive
+                0x000000000800231a        0x2 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-lock.o)
+                0x000000000800231a                __retarget_lock_release_recursive
  .text._malloc_usable_size_r
-                0x00000000080027cc       0x10 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-msizer.o)
-                0x00000000080027cc                _malloc_usable_size_r
+                0x000000000800231c       0x10 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-msizer.o)
+                0x000000000800231c                _malloc_usable_size_r
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.HAL_NVIC_SetPriorityGrouping.str1.4
-                0x00000000080027dc       0x31 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
- *fill*         0x000000000800280d        0x3 
+                0x000000000800232c       0x31 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
+ *fill*         0x000000000800235d        0x3 
  .rodata.HAL_GPIO_Init.str1.4
-                0x0000000008002810       0x2f ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
- *fill*         0x000000000800283f        0x1 
+                0x0000000008002360       0x2f ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o
+ *fill*         0x000000000800238f        0x1 
  .rodata.HAL_RCC_OscConfig.str1.4
-                0x0000000008002840       0x2e ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
- .rodata.trace_puts.str1.4
-                0x000000000800286e       0x2e ./system/src/diag/trace.o
-                                          0x2 (size before relaxing)
- *fill*         0x000000000800286e        0x2 
+                0x0000000008002390       0x2e ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o
+ *fill*         0x00000000080023be        0x2 
  .rodata.dumpExceptionStack.str1.4
-                0x0000000008002870      0x11a ./system/src/cortexm/exception-handlers.o
- *fill*         0x000000000800298a        0x2 
+                0x00000000080023c0      0x11a ./system/src/cortexm/exception-handlers.o
+ *fill*         0x00000000080024da        0x2 
  .rodata.str1.4
-                0x000000000800298c       0x2a ./system/src/cortexm/exception-handlers.o
- *fill*         0x00000000080029b6        0x2 
+                0x00000000080024dc       0x2a ./system/src/cortexm/exception-handlers.o
+ *fill*         0x0000000008002506        0x2 
  .rodata.AHBPrescTable
-                0x00000000080029b8       0x10 ./system/src/cmsis/system_stm32f4xx.o
-                0x00000000080029b8                AHBPrescTable
+                0x0000000008002508       0x10 ./system/src/cmsis/system_stm32f4xx.o
+                0x0000000008002508                AHBPrescTable
  .rodata.assert_failed.str1.4
-                0x00000000080029c8       0x2d ./src/initialize-hardware.o
- *fill*         0x00000000080029f5        0x3 
+                0x0000000008002518       0x2d ./src/initialize-hardware.o
+ *fill*         0x0000000008002545        0x3 
  .rodata.main.str1.4
-                0x00000000080029f8       0x4f ./src/main.o
+                0x0000000008002548       0x25 ./src/main.o
  .rodata._svfprintf_r.str1.1
-                0x0000000008002a47       0x11 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-svfprintf.o)
+                0x000000000800256d       0x11 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-svfprintf.o)
  .rodata._printf_i.str1.1
-                0x0000000008002a58       0x22 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x000000000800257e       0x22 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-vfprintf_i.o)
  *(vtable)
  *(.eh_frame*)
  *(.glue_7)
- .glue_7        0x0000000008002a7a        0x0 linker stubs
+ .glue_7        0x00000000080025a0        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008002a7a        0x0 linker stubs
+ .glue_7t       0x00000000080025a0        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008002a7c        0x0
- .vfp11_veneer  0x0000000008002a7c        0x0 linker stubs
+.vfp11_veneer   0x00000000080025a0        0x0
+ .vfp11_veneer  0x00000000080025a0        0x0 linker stubs
 
-.v4_bx          0x0000000008002a7c        0x0
- .v4_bx         0x0000000008002a7c        0x0 linker stubs
+.v4_bx          0x00000000080025a0        0x0
+ .v4_bx         0x00000000080025a0        0x0 linker stubs
 
-.iplt           0x0000000008002a7c        0x0
- .iplt          0x0000000008002a7c        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+.iplt           0x00000000080025a0        0x0
+ .iplt          0x00000000080025a0        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008002a7c                . = ALIGN (0x4)
-                0x0000000008002a7c                __exidx_start = .
+                0x00000000080025a0                . = ALIGN (0x4)
+                0x00000000080025a0                __exidx_start = .
 
-.ARM.exidx      0x0000000008002a7c        0x8
+.ARM.exidx      0x00000000080025a0        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
  .ARM.exidx.text.__udivmoddi4
-                0x0000000008002a7c        0x8 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
-                0x0000000008002a84                __exidx_end = .
+                0x00000000080025a0        0x8 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+                0x00000000080025a8                __exidx_end = .
 
-.rel.dyn        0x0000000008002a84        0x0
- .rel.iplt      0x0000000008002a84        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
-                0x0000000008002a84                . = ALIGN (0x4)
-                0x0000000008002a84                _etext = .
-                0x0000000008002a84                __etext = .
+.rel.dyn        0x00000000080025a8        0x0
+ .rel.iplt      0x00000000080025a8        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+                0x00000000080025a8                . = ALIGN (0x4)
+                0x00000000080025a8                _etext = .
+                0x00000000080025a8                __etext = .
 
-.data_CCMRAM    0x0000000010000000        0x0 load address 0x0000000008002a84
+.data_CCMRAM    0x0000000010000000        0x0 load address 0x00000000080025a8
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x0000000010000000                . = ALIGN (0x4)
-                0x0000000008002a84                _sidata = LOADADDR (.data)
+                0x00000000080025a8                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x88 load address 0x0000000008002a84
+.data           0x0000000020000000       0x84 load address 0x00000000080025a8
  FILL mask 0xff
                 0x0000000020000000                _sdata = .
                 0x0000000020000000                __data_start__ = .
@@ -4464,41 +4420,41 @@ END GROUP
                 0x0000000020000014                SystemCoreClock
  .data.A        0x0000000020000018       0x18 ./src/main.o
                 0x0000000020000018                A
- .data.temp     0x0000000020000030        0x4 ./src/main.o
-                0x0000000020000030                temp
  .data._impure_ptr
-                0x0000000020000034        0x4 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-impure.o)
-                0x0000000020000034                _impure_ptr
+                0x0000000020000030        0x4 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-impure.o)
+                0x0000000020000030                _impure_ptr
  .data._impure_data
-                0x0000000020000038       0x4c /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-impure.o)
-                0x0000000020000038                _impure_data
+                0x0000000020000034       0x4c /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-impure.o)
+                0x0000000020000034                _impure_data
  *(.data_end .data_end.*)
- .data_end      0x0000000020000084        0x4 ./system/src/newlib/startup.o
-                0x0000000020000088                . = ALIGN (0x4)
-                0x0000000020000088                _edata = .
-                0x0000000020000088                __data_end__ = .
+ .data_end      0x0000000020000080        0x4 ./system/src/newlib/startup.o
+                0x0000000020000084                . = ALIGN (0x4)
+                0x0000000020000084                _edata = .
+                0x0000000020000084                __data_end__ = .
 
-.igot.plt       0x0000000020000088        0x0 load address 0x0000000008002b0c
- .igot.plt      0x0000000020000088        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+.igot.plt       0x0000000020000084        0x0 load address 0x000000000800262c
+ .igot.plt      0x0000000020000084        0x0 ./system/src/stm32f4-hal/stm32f4xx_hal.o
 
 .bss_CCMRAM     0x0000000010000000        0x0
  *(.bss.CCMRAM .bss.CCMRAM.*)
 
-.bss            0x0000000020000088       0xa8
-                0x0000000020000088                __bss_start__ = .
-                0x0000000020000088                _sbss = .
+.bss            0x0000000020000084       0xac
+                0x0000000020000084                __bss_start__ = .
+                0x0000000020000084                _sbss = .
  *(.bss_begin .bss_begin.*)
- .bss_begin     0x0000000020000088        0x4 ./system/src/newlib/startup.o
+ .bss_begin     0x0000000020000084        0x4 ./system/src/newlib/startup.o
  *(.bss .bss.*)
- .bss.uwTick    0x000000002000008c        0x4 ./system/src/stm32f4-hal/stm32f4xx_hal.o
-                0x000000002000008c                uwTick
+ .bss.uwTick    0x0000000020000088        0x4 ./system/src/stm32f4-hal/stm32f4xx_hal.o
+                0x0000000020000088                uwTick
  .bss.current_heap_end.0
-                0x0000000020000090        0x4 ./system/src/newlib/sbrk.o
- .bss.name.0    0x0000000020000094        0x1 ./system/src/newlib/syscalls.o
- *fill*         0x0000000020000095        0x3 
- .bss.errno     0x0000000020000098        0x4 ./system/src/newlib/syscalls.o
-                0x0000000020000098                errno
- .bss.buf.0     0x000000002000009c       0x80 ./system/src/diag/trace.o
+                0x000000002000008c        0x4 ./system/src/newlib/sbrk.o
+ .bss.name.0    0x0000000020000090        0x1 ./system/src/newlib/syscalls.o
+ *fill*         0x0000000020000091        0x3 
+ .bss.errno     0x0000000020000094        0x4 ./system/src/newlib/syscalls.o
+                0x0000000020000094                errno
+ .bss.buf.0     0x0000000020000098       0x80 ./system/src/diag/trace.o
+ .bss.temp      0x0000000020000118        0x4 ./src/main.o
+                0x0000000020000118                temp
  .bss.timer_delayCount
                 0x000000002000011c        0x4 ./src/timer.o
                 0x000000002000011c                timer_delayCount
@@ -4658,47 +4614,41 @@ END GROUP
  .ARM.attributes
                 0x000000000000033c       0x2e ./src/timer.o
  .ARM.attributes
-                0x000000000000036a       0x1e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_addsubdf3.o)
+                0x000000000000036a       0x1e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x0000000000000388       0x1e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_arm_cmpsf2.o)
+                0x0000000000000388       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
  .ARM.attributes
-                0x00000000000003a6       0x1e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_aeabi_uldivmod.o)
+                0x00000000000003b6       0x1e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x00000000000003c4       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+                0x00000000000003d4       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-vsnprintf.o)
  .ARM.attributes
-                0x00000000000003f2       0x1e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v7e-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x0000000000000402       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-impure.o)
  .ARM.attributes
-                0x0000000000000410       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-vsnprintf.o)
+                0x0000000000000430       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-errno.o)
  .ARM.attributes
-                0x000000000000043e       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-impure.o)
+                0x000000000000045e       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-svfprintf.o)
  .ARM.attributes
-                0x000000000000046c       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-errno.o)
+                0x000000000000048c       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-vfprintf_i.o)
  .ARM.attributes
-                0x000000000000049a       0x17 /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-strlen.o)
+                0x00000000000004ba       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memmove.o)
  .ARM.attributes
-                0x00000000000004b1       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-svfprintf.o)
+                0x00000000000004e8       0x1c /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memchr.o)
  .ARM.attributes
-                0x00000000000004df       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x0000000000000504       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy-stub.o)
  .ARM.attributes
-                0x000000000000050d       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memmove.o)
+                0x0000000000000532       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-freer.o)
  .ARM.attributes
-                0x000000000000053b       0x1c /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memchr.o)
+                0x0000000000000560       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mallocr.o)
  .ARM.attributes
-                0x0000000000000557       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy-stub.o)
+                0x000000000000058e       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mlock.o)
  .ARM.attributes
-                0x0000000000000585       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-freer.o)
+                0x00000000000005bc       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-reallocr.o)
  .ARM.attributes
-                0x00000000000005b3       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mallocr.o)
+                0x00000000000005ea       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-sbrkr.o)
  .ARM.attributes
-                0x00000000000005e1       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-mlock.o)
+                0x0000000000000618       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-lock.o)
  .ARM.attributes
-                0x000000000000060f       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-reallocr.o)
- .ARM.attributes
-                0x000000000000063d       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-sbrkr.o)
- .ARM.attributes
-                0x000000000000066b       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-lock.o)
- .ARM.attributes
-                0x0000000000000699       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-msizer.o)
+                0x0000000000000646       0x2e /home/trongkhang/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/12.2.1-1.2.1/.content/bin/../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-msizer.o)
 
 .debug
  *(.debug)
@@ -4756,7 +4706,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x68fc
+.debug_info     0x0000000000000000     0x68aa
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0xa2a ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_info    0x0000000000000a2a     0x11f0 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
@@ -4774,11 +4724,11 @@ END GROUP
  .debug_info    0x00000000000051ad      0x10b ./system/src/cmsis/vectors_stm32f407xx.o
  .debug_info    0x00000000000052b8      0x590 ./src/initialize-hardware.o
  .debug_info    0x0000000000005848      0x414 ./src/led.o
- .debug_info    0x0000000000005c5c      0x4e4 ./src/main.o
- .debug_info    0x0000000000006140       0xb8 ./src/stm32f4xx_hal_msp.o
- .debug_info    0x00000000000061f8      0x704 ./src/timer.o
+ .debug_info    0x0000000000005c5c      0x492 ./src/main.o
+ .debug_info    0x00000000000060ee       0xb8 ./src/stm32f4xx_hal_msp.o
+ .debug_info    0x00000000000061a6      0x704 ./src/timer.o
 
-.debug_abbrev   0x0000000000000000     0x2139
+.debug_abbrev   0x0000000000000000     0x2114
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x248 ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_abbrev  0x0000000000000248      0x400 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
@@ -4796,11 +4746,11 @@ END GROUP
  .debug_abbrev  0x0000000000001883       0xb8 ./system/src/cmsis/vectors_stm32f407xx.o
  .debug_abbrev  0x000000000000193b      0x216 ./src/initialize-hardware.o
  .debug_abbrev  0x0000000000001b51      0x180 ./src/led.o
- .debug_abbrev  0x0000000000001cd1      0x22b ./src/main.o
- .debug_abbrev  0x0000000000001efc       0x47 ./src/stm32f4xx_hal_msp.o
- .debug_abbrev  0x0000000000001f43      0x1f6 ./src/timer.o
+ .debug_abbrev  0x0000000000001cd1      0x206 ./src/main.o
+ .debug_abbrev  0x0000000000001ed7       0x47 ./src/stm32f4xx_hal_msp.o
+ .debug_abbrev  0x0000000000001f1e      0x1f6 ./src/timer.o
 
-.debug_line     0x0000000000000000     0xb5a7
+.debug_line     0x0000000000000000     0xb5b3
  *(.debug_line)
  .debug_line    0x0000000000000000      0xbe1 ./system/src/stm32f4-hal/stm32f4xx_hal.o
  .debug_line    0x0000000000000be1     0x1061 ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o
@@ -4818,9 +4768,9 @@ END GROUP
  .debug_line    0x00000000000081d1      0x13b ./system/src/cmsis/vectors_stm32f407xx.o
  .debug_line    0x000000000000830c      0xbea ./src/initialize-hardware.o
  .debug_line    0x0000000000008ef6      0x8b0 ./src/led.o
- .debug_line    0x00000000000097a6      0xc18 ./src/main.o
- .debug_line    0x000000000000a3be      0x893 ./src/stm32f4xx_hal_msp.o
- .debug_line    0x000000000000ac51      0x956 ./src/timer.o
+ .debug_line    0x00000000000097a6      0xc24 ./src/main.o
+ .debug_line    0x000000000000a3ca      0x893 ./src/stm32f4xx_hal_msp.o
+ .debug_line    0x000000000000ac5d      0x956 ./src/timer.o
 
 .debug_frame    0x0000000000000000      0xc0c
  *(.debug_frame)
@@ -4844,7 +4794,7 @@ END GROUP
  .debug_frame   0x0000000000000b64       0x50 ./src/stm32f4xx_hal_msp.o
  .debug_frame   0x0000000000000bb4       0x58 ./src/timer.o
 
-.debug_str      0x0000000000000000    0xf69d1
+.debug_str      0x0000000000000000    0xf69b6
  *(.debug_str)
  .debug_str     0x0000000000000000    0xee857 ./system/src/stm32f4-hal/stm32f4xx_hal.o
                                       0xeebe8 (size before relaxing)
@@ -4878,11 +4828,11 @@ END GROUP
                                       0xf195a (size before relaxing)
  .debug_str     0x00000000000f66ea      0x137 ./src/led.o
                                       0xee152 (size before relaxing)
- .debug_str     0x00000000000f6821      0x148 ./src/main.o
-                                      0xf322e (size before relaxing)
- .debug_str     0x00000000000f6969       0x3d ./src/stm32f4xx_hal_msp.o
+ .debug_str     0x00000000000f6821      0x12d ./src/main.o
+                                      0xf31f2 (size before relaxing)
+ .debug_str     0x00000000000f694e       0x3d ./src/stm32f4xx_hal_msp.o
                                       0xedebd (size before relaxing)
- .debug_str     0x00000000000f69a6       0x2b ./src/timer.o
+ .debug_str     0x00000000000f698b       0x2b ./src/timer.o
                                       0xee582 (size before relaxing)
 
 .debug_loc
